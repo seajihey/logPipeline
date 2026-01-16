@@ -1,5 +1,4 @@
 # 📜 로그 파이프라인 실습
-
 본 문서는 **Filebeat → Logstash → Elasticsearch + RDBMS** 구조의  
 로그 수집·가공·저장 파이프라인을 직접 구축하고 실습한 내용을 정리한 문서입니다.
 
@@ -78,7 +77,7 @@
 - Filebeat가 감시할 로그 파일을 준비합니다.
 - 애플리케이션 로그는 테스트 목적으로 AI를 활용해 생성했습니다.
 
-<img width="100%" alt="log-sample" src="https://github.com/user-attachments/assets/24b7ac80-a8ed-414b-a4e7-591eb917d26e" />
+<img width="800" height="300" alt="log-sample" src="https://github.com/user-attachments/assets/24b7ac80-a8ed-414b-a4e7-591eb917d26e" />
 
 ---
 
@@ -88,7 +87,7 @@
   <app_http_logs> 테이블을 생성합니다.
 - Logstash를 통해 가공된 로그 데이터가 저장됩니다.
 
-<img width="100%" alt="db-table" src="https://github.com/user-attachments/assets/c7b5c7f3-2521-4005-9939-d659f757b096" />
+<img width="80%" height="80%" alt="db-table" src="https://github.com/user-attachments/assets/c7b5c7f3-2521-4005-9939-d659f757b096" />
 
 - 시퀀스와 트리거를 사용하여 `id` 값을 자동 생성하도록 구성했습니다.
 
@@ -114,13 +113,13 @@
 - <input → filter → output> 구조로 구성합니다.
 - Filebeat 로그 수신 → 파싱 및 가공 → Elasticsearch 전송 흐름입니다.
 
-<img width="100%" alt="logstash-config" src="https://github.com/user-attachments/assets/e581ae5d-9c43-40a6-b3cf-083339eaa0cb" />
+<img width="50%" height="50%" alt="logstash-config" src="https://github.com/user-attachments/assets/e581ae5d-9c43-40a6-b3cf-083339eaa0cb" />
 
 ---
 
 ### ▶️ Step 5. 실행
 
-<img width="100%" alt="run" src="https://github.com/user-attachments/assets/996ddbb9-b531-420f-8a15-c352d9fe2cac" />
+<img width="70%" height="70%" alt="run" src="https://github.com/user-attachments/assets/996ddbb9-b531-420f-8a15-c352d9fe2cac" />
 
 ---
 
@@ -128,10 +127,14 @@
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/eddbb368-1908-45ac-8240-d338355ac269" width="100%"/></td>
-    <td><img src="https://github.com/user-attachments/assets/3b20b59e-939c-4a09-b6e1-37045f59c2ad" width="100%"/></td>
+    <td><img src="https://github.com/user-attachments/assets/eddbb368-1908-45ac-8240-d338355ac269" width="80%"/></td>
+    <td><img src="https://github.com/user-attachments/assets/3b20b59e-939c-4a09-b6e1-37045f59c2ad" width="80%"/></td>
   </tr>
 </table>
+  <br>- elasticSearch tools를 이용하여 index에 추가된 것을 확인하였습니다.<br><br>
+
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/4d646690-a01c-4c1b-8e18-19dcca651d31" /><br>
+- 해당 로그 기록을 가지고 kibana에서 <어떤 http메서드가 가장 많이 호출 되었는가?>를 시각화한 모습입니다.
 
 ---
 
@@ -142,5 +145,4 @@
 - **Elasticsearch**: 실시간 분석 및 시각화
 - **RDBMS**: 정합성 있는 장기 저장
 
-본 실습을 통해 대용량 로그를 안정적으로 수집하고, 가공된 데이터를 목적에 맞게 저장·분석하는  
-로그 파이프라인 구조를 이해할 수 있었습니다.
+본 실습을 통해 대용량 로그를 수집하고, 가공된 데이터를 목적에 맞게 저장·분석하는 로그 파이프라인 구조를 이해할 수 있었습니다.
